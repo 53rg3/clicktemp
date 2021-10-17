@@ -1,0 +1,4 @@
+venv
+ccli.egg-info
+.idea
+__pycache__
