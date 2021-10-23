@@ -1,4 +1,5 @@
 import click
+from click import command
 
 from models.Config import somePassedObject
 
@@ -8,7 +9,7 @@ from models.Config import somePassedObject
 @click.option('--repeat', '-r', default=1, help="Times to repeat the greeting")
 @click.argument('out', type=click.File('w'), default='-')
 @somePassedObject
-def hello(config, name, repeat, out):
+def hello(config, name, repeat, out) -> command:
     """
     This the comment which will be displayed in the --help
 
@@ -18,3 +19,5 @@ def hello(config, name, repeat, out):
     click.secho(f"Running in mode: {config.mode}", fg="yellow")
     for x in range(repeat):
         click.echo(f"Hello, {name}!", file=out)
+
+    return
